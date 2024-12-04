@@ -44,6 +44,13 @@ fun multiply(base: Array<Int>, n: Int, digit: Int): Array<Int> {
     val upperArray = Array(baseSize + 1 + digit) { 0 }
     val ret = Array(baseSize + 1 + digit) { 0 }
 
+    /*
+    7136 * 2 일경우
+    올림자리수 : 10010 <- 곱한값 / 10 의 값만 모으는거니 1자리 늘어남 1001 에 0 붙임
+    곱한값들  :  4262 <- 곱한값 % 10 해서 남는값만 모음
+    이후 각 자리수 더함 = 14272
+     */
+     
     for (i in 0 until baseSize) {
         val v = base[i] * n
         if (v >= 10) {
