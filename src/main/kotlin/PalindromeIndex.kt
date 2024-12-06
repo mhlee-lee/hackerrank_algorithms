@@ -20,7 +20,6 @@ fun palindromeIndex(s: String): Int {
         if (s[i] != s[lastIndex - i]) {
             val startIndex = i + 1
             val endIndex = lastIndex -i
-            val length = endIndex - startIndex
 
             val s1 = s.substring(i + 1, s.length -i)
             if (isEquals(s1.substring(0, s1.length/2), s1.substring(s1.length -  s1.length/2,  s1.length))) return i
