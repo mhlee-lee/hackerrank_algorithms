@@ -15,12 +15,12 @@ fun gridSearch(G: Array<String>, P: Array<String>): String {
     val pYlen = P.size
     val gXLen = G[0].length
     val gYLen = G.size
-    val gMaxXindex = gXLen - pXLen - 1
-    val gMaxYindex = gYLen - pYlen - 1
+    val gMaxXLen = gXLen - pXLen
+    val gMaxYLen = gYLen - pYlen
 
 
-    for (gy in 0..gMaxYindex) {
-        for (gx in 0 until gMaxXindex) {
+    for (gy in 0 until gMaxYLen) {
+        for (gx in 0 until gMaxXLen) {
             var match = true
             for (py in 0 until pYlen) {
                 if (G[gy + py].substring(gx, gx + pXLen) != P[py]) {
