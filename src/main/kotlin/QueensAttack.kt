@@ -34,7 +34,6 @@ fun queensAttack(n: Int, k: Int, x: Int, y: Int, obstacles: Array<Array<Int>>): 
         val verticalGap = x - obstacle[0]
         val horizonGap = y - obstacle[1]
 
-        var removeCount = 0
         val arrow = if (horizonGap == 0) {
             if (verticalGap > 0) ARROW.LEFT to obstacle[0] else ARROW.RIGHT to (n - obstacle[0] + 1)
         } else if (verticalGap == 0) {
