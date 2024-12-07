@@ -27,14 +27,12 @@ val circleIndex = arrayOf(
 fun formingMagicSquare(s: Array<Array<Int>>): Int {
     var minValue = 1000
     for (i in 0..6 step 2) {
-        val value = arrayOf(0,0,0,0)
+        val value = arrayOf(0,0)
         circleIndex.forEachIndexed { index, (x, y) ->
             val comIndex = (index + i) % 8
             val (comX, comY) = circleIndex[comIndex]
             value[0] += abs(s[x][y] - correctAnswer[comX][comY])
             value[1] += abs(s[x][y] - correctAnswer[comY][comX])
-            value[2] += abs(s[y][x] - correctAnswer[comX][comY])
-            value[3] += abs(s[y][x] - correctAnswer[comY][comX])
         }
 
         val min = value.min()
