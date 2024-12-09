@@ -24,7 +24,7 @@ fun weightedUniformStrings(s: String, queries: Array<Int>): Array<String> {
         weights.add(prevWeight)
     }
 
-    return queries.map { q -> if (q in weights) "Yes" else "No" }.toTypedArray()
+    return queries.map { if (it in weights) "Yes" else "No" }.toTypedArray()
 }
 
 fun main(args: Array<String>) {
