@@ -5,27 +5,24 @@
  * The function accepts STRING s as parameter.
  */
 
-fun isEquals(s: String, reversString: String): Boolean {
-    for (i in s.indices) {
-        if (s[i] != reversString[s.length - i - 1]) return false
-    }
-    return true
+fun isPalindrome(s: String): Boolean {
+    val halfLength = s.length/2
+    val isOdd = s.length % 2 != 0
+
+    var leftString = s.substring(0, halfLength)
+    var rightString = s.substring(if (isOdd) halfLength + 1 else halfLength, s.length).reversed()
+    return leftString == rightString
 }
 
 fun palindromeIndex(s: String): Int {
-    // Write your code here
     val lastIndex = s.length - 1
 
-    for (i in 0..lastIndex) {
+    for (i in 0 until s.length/2) {
         if (s[i] != s[lastIndex - i]) {
-            val startIndex = i + 1
-            val endIndex = lastIndex -i
-
-            val s1 = s.substring(i + 1, s.length -i)
-            if (isEquals(s1.substring(0, s1.length/2), s1.substring(s1.length -  s1.length/2,  s1.length))) return i
-            val s2 = s.substring(i, s.length -i -1)
-            if (isEquals(s2.substring(0, s2.length/2), s2.substring(s2.length -  s2.length/2,  s2.length))) return s.length -i -1
-            return -1
+            var subString = s.substring(i + 1, s.length - i)
+            if (isPalindrome(subString)) return i
+            subString = s.substring(i, s.length - i - 1)
+            if (isPalindrome(subString)) return s.length - i - 1
         }
     }
     return -1
