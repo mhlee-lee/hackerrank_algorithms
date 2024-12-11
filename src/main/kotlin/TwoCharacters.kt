@@ -5,7 +5,7 @@
  * The function accepts STRING s as parameter.
  */
 
-fun isValid(s: String): Boolean {
+fun isValid1(s: String): Boolean {
     for (i in 1 until s.length) {
         if (s[i-1] == s[i]) return false
     }
@@ -20,7 +20,7 @@ fun alternate(s: String): Int {
         uniqueChars.forEach { c2 ->
             if (c1 != c2) {
                 val filteredString = s.filter { it == c1 || it == c2 }
-                if (isValid(filteredString)) maxLength = maxOf(maxLength, filteredString.length)
+                if (isValid1(filteredString)) maxLength = maxOf(maxLength, filteredString.length)
             }
         }
     }
