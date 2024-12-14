@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class StringToInteger {
     public int myAtoi(String s) {
         int idx = 0;
