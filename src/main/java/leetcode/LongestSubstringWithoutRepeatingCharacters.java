@@ -10,9 +10,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int maxLength = 0;
         for (int i = 0 ; i < s.length() ; i++) {
             char c = s.charAt(i);
-            Integer dupIndex = existMap.get(c);
+            Integer dupIndex = existMap.getOrDefault(c, -1);
 
-            if (dupIndex != null && dupIndex >= startIdx) {
+            if (dupIndex >= startIdx) {
                 startIdx = dupIndex + 1;
             }
             existMap.put(c, i);
